@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: web-service
+  description: Example web service component
+  annotations:
+    backstage.io/techdocs-ref: dir:./docs
+    github.com/project-slug: my-org/web-service
+  tags:
+    - nodejs
+    - typescript
+    - web
+  links:
+    - url: https://github.com/my-org/web-service
+      title: Repository
+      icon: github
+spec:
+  type: service
+  lifecycle: production
+  owner: team-web
+  system: web-platform
+  dependsOn:
+    - resource:database
+    - component:auth-service
+  providesApis:
+    - web-api
